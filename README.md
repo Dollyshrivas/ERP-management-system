@@ -39,7 +39,7 @@ The ERP System centralizes everyday business workflows such as user management, 
 
    ```env
    PORT=5000
-   DB_URI=your_mongodb_connection_string
+   DB_URI=mongodb+srv://dolly:12345@cluster0.djql9u2.mongodb.net/erpsystem?retryWrites=true&w=majority
    ```
 
 3. **Run the application**
