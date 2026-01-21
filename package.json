@@ -1,0 +1,27 @@
+{
+  "name": "erp-management",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "dolly",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.1.3",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.12",
+    "nodemon": "^3.1.11"
+  }
+}
