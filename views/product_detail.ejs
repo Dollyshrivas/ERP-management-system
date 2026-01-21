@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product details</title>
+
+</head>
+<body>
+  <style>
+
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+    .container{
+      margin-left: 400px;
+      margin-top: 20px;
+      max-width: 700px;
+      
+      
+    }
+
+    /* navbar */
+
+.erp-navbar {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, #2f80ed, #1c60c8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #eaf1ff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+.nav-right img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+    h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-top: 20px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+}
+
+    .card{
+      background-color: rgb(182, 194, 247);
+      border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    strong{
+      font-size: 25px;
+    }
+
+    p{
+      font-size: large;
+      padding-top: 10px;
+    }
+    
+
+    .buy-btn{
+      padding: 10px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(19, 27, 240);
+  font-family:'Times New Roman', Times, serif;
+    }
+
+  </style>
+
+  <nav class="erp-navbar">
+  <div class="nav-left">
+    <h2 class="logo">ERP System</h2>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="/loginpage">Login</a></li> 
+    <li><a href="/payroll">Payroll</a></li>
+    <li><a href="#">Reports</a></li>
+    <li><a href="/productdetail">Product Details</a></li>
+  </ul>
+</nav>
+
+  <div class="container">
+    <h1>Detail about Products</h2>
+        <% product.forEach(product => {%>
+    <div action="/productdetail" method="POST" class="card">
+      
+        <p class="text"><strong>Name </strong><%= product.Name %></p>
+        <p class="text"><strong>Role </strong><%= product.Role %></p>
+        <p class="text"><strong>Price </strong><%= product.Price %></p>
+
+          <!-- APPLY BUTTON -->
+          <form action="/buybutton" method="GET" class="formsubmit">
+  <button type="submit" class="buy-btn">Buy</button>
+</form>
+        
+      </div>
+      <%})%>
+  </div>
+
+
+</body>
+</html>

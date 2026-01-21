@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .payroll-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.payroll-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+.payroll-form .form-group {
+  margin-bottom: 15px;
+}
+
+.payroll-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.payroll-form input,
+.payroll-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+}
+
+.payroll-form input:focus,
+.payroll-form select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+}
+
+    </style>
+</head>
+<body>
+    <div class="payroll-container">
+  <h2>Employee Payroll Form</h2>
+
+  <form action="/payroll" method="POST" class="payroll-form">
+
+    <div class="form-group">
+      <label>Employee Name</label>
+      <input type="text" name="employeeName" required>
+    </div>
+
+    <div class="form-group">
+      <label>Employee ID</label>
+      <input type="text" name="employeeId" required>
+    </div>
+
+    <div class="form-group">
+      <label>Department</label>
+      <select name="department" required>
+        <option value="">Select</option>
+        <option>HR</option>
+        <option>IT</option>
+        <option>Finance</option>
+        <option>Operations</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Basic Salary</label>
+      <input type="number" name="basicSalary" required>
+    </div>
+
+    <div class="form-group">
+      <label>Allowances</label>
+      <input type="number" name="allowances" value="0">
+    </div>
+
+    <div class="form-group">
+      <label>Deductions</label>
+      <input type="number" name="deductions" value="0">
+    </div>
+
+    <div class="form-group">
+      <label>Payment Month</label>
+      <input type="month" name="payMonth" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Generate Payroll</button>
+
+  </form>
+</div>
+
+</body>
+</html>

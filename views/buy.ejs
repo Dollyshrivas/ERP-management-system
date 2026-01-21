@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .payment-container {
+  max-width: 520px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.payment-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #111827;
+}
+
+.payment-form .form-group {
+  margin-bottom: 15px;
+}
+
+.payment-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.payment-form input,
+.payment-form select,
+.payment-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+}
+
+.payment-form textarea {
+  resize: none;
+}
+
+.payment-form input:focus,
+.payment-form select:focus,
+.payment-form textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #15803d;
+}
+
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+  <h2>Employee Payment Form</h2>
+
+  <form action="/paymentform" method="POST" class="payment-form">
+
+    <div class="form-group">
+      <label>Employee Name</label>
+      <input type="text" name="employeeName" required>
+    </div>
+
+    
+
+    <div class="form-group">
+      <label>Payment Amount</label>
+      <input type="number" name="amount" required>
+    </div>
+
+    
+
+    <div class="form-group">
+      <label>Payment Mode</label>
+      <select name="paymentMode" required>
+        <option value="">Select</option>
+        <option>Bank Transfer</option>
+        <option>UPI</option>
+        <option>Cash</option>
+        <option>Cheque</option>
+      </select>
+    </div>
+
+    
+    <div class="form-group">
+      <label>Remarks</label>
+      <textarea name="remarks" rows="3"></textarea>
+    </div>
+
+    <button  type="submit" class="submit-btn">Submit Payment</button>
+
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products addition</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.erp-navbar {
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, #2f80ed, #1c60c8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #eaf1ff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+.nav-right img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* product-form style */
+
+/* Form Container */
+.container {
+  max-width: 420px;
+  margin: 80px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Form */
+.product-form {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Inputs */
+.product-form input {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccd4e0;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* Button */
+.add-btn {
+  margin-top: 10px;
+  padding: 12px;
+  background: linear-gradient(135deg, #2f80ed, #1c60c8);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #3984f5, #045aca);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(47, 128, 237, 0.35);
+}
+
+.update-btn{
+  margin-top: 10px;
+  padding: 12px;
+  background: linear-gradient(135deg, #4cf49a, #03c84b);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.update-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(47, 128, 237, 0.35);
+}
+
+.delete-btn{
+  background: linear-gradient(135deg, #f37171, #d60303);
+  margin-top:20px ;
+  color: #fff;
+  height: 30px;
+  width: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="erp-navbar">
+  <div class="nav-left">
+    <h2 class="logo">ERP System</h2>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="/loginpage">Login</a></li> 
+    <li><a href="/payroll">Payroll</a></li>
+    <li><a href="#">Reports</a></li>
+    <li><a href="/productdetail">Product Details</a></li>
+  </ul>
+</nav>
+
+<!--Product form -->
+
+<div class="container">
+  <h2 class="title">Add New Product</h2>
+<form action="/products" method="POST" class="product-form">
+  <input type="text" name="Name" placeholder="Name" required>
+  <input type="text" name="Price" placeholder="Price" required>
+  <input type="text" name="Role" placeholder="Role" required>
+  <button type="submit" class="btn add-btn">Add</button>
+</form>
+
+<% product.forEach(product => {%>
+  <div class="product-form">
+  <form action="/products/update/<%= product.id%>" method="POST" class="product-form">
+    <input type="text" name="Name" value="<%=product.Name%>">
+    <input type="text" name="Role" placeholder="<%= product.Role%>">
+    <input type="text" name="Price" placeholder="<%= product.Price%>">
+
+    <div class="action-buttons"></div>
+    <button type="submit" class="btn update-btn">Update</button>
+  </div>
+  </form>
+  <form action="/products/delete/<%=product.id%>" method="POST">
+    <button type="submit" class="btn delete-btn">Delete</button>
+  </form>
+</div>
+<%})%>
+</div>
+
+</body>
+</html>
