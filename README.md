@@ -27,20 +27,6 @@ The ERP System centralizes everyday business workflows such as user management, 
 
 ---
 
-## 📂 Project Structure
-
-```
-ERP-System/
-├── views/           # Templates / frontend views
-├── routes/          # Application routes
-├── models/          # Database models
-├── config/          # Configuration files
-├── app.js           # Main app entry
-└── README.md        # Project documentation
-```
-
----
-
 ## ⚙️ Installation & Setup
 
 1. **Install dependencies**
